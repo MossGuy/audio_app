@@ -1,0 +1,27 @@
+This documentation covers the process of fetching audio files from cloudflare
+=============================================================================
+
+# setting up a cloudflare environment
+create an account and provide a billing method.
+*cloudflare is free to use up to 10 GB.*
+
+create a bucket under: Storage & Databases > R2 Object Storage > Overview
+Make sure Public acces is set to true under: settings > Public Development URL > enable
+
+add your music with the upload button or by dragging the files
+*files bigger then 300 MB CAN be uploaded but with extra steps*
+
+
+# create and manage songs array
+create a songs.ts file in the folder src/lib/data/
+in songs.ts create an array of objects with the information of the songs (id, title, url)
+
+create a +server.ts file in the folder src/routes/api/songs
+in +server.ts fetch the songs object withing a return function
+
+
+# build the app
+create / use a +page.svelte and +page.server.ts file anywhere of your choosing
+in +page.server.ts fetch the songs array and return it and import it in +page.svelte
+
+in +page.svelte create the audio elements using an each loop
